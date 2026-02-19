@@ -8,7 +8,7 @@
     <!-- Fonts: Playfair Display (Headings) & Montserrat (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -237,17 +237,18 @@
         /* Selected State for Card */
         .glass-card.selected {
             width: 100%;
-            max-width: 600px;
-            padding: 2.5rem 2rem; /* Reduced padding slightly */
+            /* UNIFIED WIDTH: Must match form-container max-width */
+            max-width: 800px; 
+            padding: 2.5rem 2rem; 
             cursor: default;
             transform: none;
             
             /* The visual merging magic */
-            border-bottom: 1px solid transparent; /* Hide bottom border */
+            border-bottom: 1px solid transparent; 
             border-radius: 4px 4px 0 0;
-            background: rgba(10, 10, 10, 0.6); /* Match form opacity */
+            background: rgba(10, 10, 10, 0.6); 
             border-color: var(--gold-dim);
-            z-index: 20; /* Sit above form */
+            z-index: 20; 
         }
         
         .glass-card.selected:hover {
@@ -266,7 +267,8 @@
         /* --- FORMS --- */
         .form-container {
             width: 100%;
-            max-width: 600px; /* Must match .glass-card.selected max-width */
+            /* UNIFIED WIDTH: Must match glass-card.selected max-width */
+            max-width: 800px; 
             margin: 0 auto;
             /* SEAMLESS MERGE FIX: Pull form up by 2px to overlap card border */
             margin-top: -2px; 
@@ -285,7 +287,7 @@
             position: relative;
             z-index: 10;
         }
-
+        
         .form-container.active {
             display: block;
             opacity: 1;
@@ -335,6 +337,17 @@
             background-color: #050505;
             color: var(--text-cream);
             padding: 10px;
+        }
+        
+        /* --- PLAN CARDS (New) --- */
+        .plan-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .plan-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .submit-btn {
@@ -391,7 +404,8 @@
 
         @media (max-width: 768px) {
             .intro-container {
-                min-height: 60vh;
+                min-height: 50vh;
+                padding-top: 4rem;
             }
 
             .cards-wrapper {
@@ -403,22 +417,34 @@
             
             .glass-card {
                 width: 100%;
-                max-width: 400px;
-                padding: 2rem 1.5rem;
+                /* Let card fill width on mobile */
+                max-width: 100%;
+                padding: 1.5rem 1rem;
             }
 
             /* When selected on mobile, ensure full width matching form */
             .glass-card.selected {
                 border-radius: 4px 4px 0 0;
-                padding: 2rem 1.5rem;
+                padding: 1.5rem 1rem;
+                max-width: 100%;
             }
 
             .form-container {
                 padding: 2rem 1.5rem; /* Reduce padding on mobile */
+                max-width: 100%; /* reset max width for mobile */
+            }
+            
+            /* Ensure plan cards stack nicely */
+            .plan-grid {
+                grid-template-columns: 1fr;
             }
 
-            h1 { font-size: 1.75rem !important; }
-            h2 { font-size: 1.5rem !important; }
+            h1 { font-size: 1.5rem !important; }
+            h2 { font-size: 1.3rem !important; }
+            
+            .input-field {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
         }
     </style>
 </head>
@@ -439,7 +465,7 @@
     </button>
 
     <!-- Intro Sequence & Main Layout -->
-    <main class="min-h-screen flex flex-col items-center justify-center relative z-10 p-4 pb-12">
+    <main class="min-h-screen flex flex-col items-center justify-center relative z-10 p-4 pb-12 w-full">
         
         <!-- Intro Text -->
         <div id="intro" class="intro-container w-full max-w-4xl">
@@ -455,7 +481,7 @@
         </div>
 
         <!-- Selection Cards -->
-        <div id="cards-container" class="cards-wrapper">
+        <div id="cards-container" class="cards-wrapper w-full">
             
             <!-- Card 1: Customer -->
             <div id="card-customer" class="glass-card" onclick="handleSelection('customer')">
@@ -537,24 +563,79 @@
                         </div>
                     </div>
 
+                    <!-- NEW PRICING SECTION -->
                     <div class="input-group">
                         <label class="input-label">Preferred Experience</label>
-                        <div class="flex flex-wrap gap-4 mt-2">
-                            <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-300">
-                                <!-- Added name="Experience" and values -->
-                                <input type="radio" name="Experience" value="Digital" class="accent-amber-500"> Digital Nyota
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 plan-grid">
+                            
+                            <!-- Plan 1 -->
+                            <label class="plan-card cursor-pointer relative p-5 rounded-lg">
+                                <input type="radio" name="Experience" value="Digital Nyota" class="peer sr-only">
+                                <div class="absolute inset-0 border-2 border-transparent peer-checked:border-amber-500 rounded-lg pointer-events-none transition-colors duration-300"></div>
+                                
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.5)]"></span>
+                                    <span class="font-serif text-lg text-white">Digital Nyota</span>
+                                </div>
+                                <p class="text-[9px] tracking-[0.15em] text-gray-400 uppercase mb-4 font-semibold">Perfect for Intimate Celebrations</p>
+                                <div class="mb-1">
+                                    <span class="text-xs text-gray-500 line-through decoration-gray-600">₹14,999</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-2xl font-bold text-amber-400">₹9,999</span>
+                                    <span class="text-[10px] text-gray-400 mt-1">(Founders Offer)</span>
+                                </div>
                             </label>
-                            <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-300">
-                                <input type="radio" name="Experience" value="Royal" class="accent-amber-500"> Royal Nyota
+
+                            <!-- Plan 2 -->
+                            <label class="plan-card cursor-pointer relative p-5 rounded-lg">
+                                <input type="radio" name="Experience" value="Royal Nyota" class="peer sr-only">
+                                <div class="absolute inset-0 border-2 border-transparent peer-checked:border-amber-500 rounded-lg pointer-events-none transition-colors duration-300"></div>
+                                
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.5)]"></span>
+                                    <span class="font-serif text-lg text-white">Royal Nyota</span>
+                                </div>
+                                <p class="text-[9px] tracking-[0.15em] text-gray-400 uppercase mb-4 font-semibold">The Complete Guest Experience</p>
+                                <div class="mb-1">
+                                    <span class="text-xs text-gray-500 line-through decoration-gray-600">₹49,999</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-2xl font-bold text-amber-400">₹29,999</span>
+                                    <span class="text-[10px] text-gray-400 mt-1">(Most Chosen Plan)</span>
+                                </div>
                             </label>
-                            <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-300">
-                                <input type="radio" name="Experience" value="Imperial" class="accent-amber-500"> Imperial Nyota
+
+                            <!-- Plan 3 -->
+                            <label class="plan-card cursor-pointer relative p-5 rounded-lg">
+                                <input type="radio" name="Experience" value="Imperial Nyota" class="peer sr-only">
+                                <div class="absolute inset-0 border-2 border-transparent peer-checked:border-amber-500 rounded-lg pointer-events-none transition-colors duration-300"></div>
+                                
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(192,132,252,0.5)]"></span>
+                                    <span class="font-serif text-lg text-white">Imperial Nyota</span>
+                                </div>
+                                <p class="text-[9px] tracking-[0.15em] text-gray-400 uppercase mb-4 font-semibold">For Grand Wedding Legacies</p>
+                                <div class="mb-1">
+                                    <span class="text-xs text-gray-500 line-through decoration-gray-600">₹2,75,000</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-2xl font-bold text-amber-400">₹1,25,000</span>
+                                    <span class="text-[10px] text-gray-400 mt-1">(By Consultation)</span>
+                                </div>
                             </label>
-                            <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-300">
-                                <input type="radio" name="Experience" value="Not Sure" checked class="accent-amber-500"> Not Sure (Recommended)
+
+                        </div>
+                        
+                        <!-- Not Sure Option -->
+                        <div class="mt-4 text-center">
+                            <label class="inline-flex items-center gap-2 cursor-pointer text-xs text-gray-400 hover:text-white transition-colors">
+                                <input type="radio" name="Experience" value="Not Sure" class="accent-amber-500">
+                                <span>I'm not sure yet, help me decide</span>
                             </label>
                         </div>
                     </div>
+                    <!-- END PRICING SECTION -->
 
                     <div class="input-group">
                         <label class="input-label">Message (Optional)</label>
@@ -715,6 +796,8 @@
                 // Show Form
                 setTimeout(() => {
                     formCustomer.classList.add('active');
+                    // Scroll slightly to ensure form is visible
+                    formCustomer.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 400);
 
             } else {
@@ -725,6 +808,7 @@
                 // Show Form
                 setTimeout(() => {
                     formPartner.classList.add('active');
+                    formPartner.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 400);
             }
         }
@@ -761,6 +845,7 @@
             setTimeout(() => {
                 resetFormState('customer');
                 resetFormState('partner');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 500);
         }
 
