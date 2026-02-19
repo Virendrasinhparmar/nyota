@@ -559,14 +559,33 @@
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
                 <!-- Digital -->
-                <div class="glass-card p-8 rounded-xl fade-in-up hover:border-gray-500">
-                    <h3 class="text-2xl font-serif mb-2">Digital</h3>
-                    <p class="text-sm text-gray-500 mb-8">Perfect for intimate celebrations.</p>
-                    <ul class="space-y-3 mb-8 text-sm text-gray-400">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Custom Event Link</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Digital Invitation</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Google Maps Integration</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Basic Gallery (100 photos)</li>
+                <!-- Digital -->
+                <div class="glass-card p-8 rounded-xl fade-in-up hover:border-gray-500 flex flex-col h-full">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-2">
+                             <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                             <h3 class="text-2xl font-serif text-white">Digital Nyota</h3>
+                        </div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-4">Perfect for intimate celebrations</p>
+                        <div class="flex flex-col mb-4">
+                            <span class="text-gray-500 line-through text-sm">₹14,999</span>
+                            <span class="text-gold text-2xl font-bold">₹9,999 <span class="text-xs font-normal text-white ml-1">(Founders Offer)</span></span>
+                        </div>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                            A modern replacement for the traditional wedding card. Instead of sending PDFs and locations repeatedly, couples share one elegant private link with their guests.
+                        </p>
+                    </div>
+
+                    <ul class="space-y-3 mb-8 text-sm text-gray-400 flex-grow">
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Personalized wedding web link</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Digital invitation page with couple details</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Complete event schedule</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>One-tap Google Maps directions</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Simple RSVP confirmation</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Background wedding music</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Basic gallery (up to 100 photos)</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>3-month hosting</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>One-time setup. No subscriptions.</span></li>
                     </ul>
                   <a href="#contact" class="block text-center w-full py-3 rounded border border-gray-600 hover:bg-white hover:text-black transition-colors text-sm uppercase tracking-wider">
                     Select Digital
@@ -574,32 +593,75 @@
                 </div>
 
                 <!-- Royal (Popular) -->
-                <div class="glass-card glass-highlight p-10 rounded-2xl relative transform md:-translate-y-4 fade-in-up z-20" style="transition-delay: 100ms;">
-                    <div class="absolute top-0 right-0 bg-[#D4AF37] text-black text-xs font-bold px-4 py-1.5 uppercase tracking-wider rounded-bl-lg">Most Popular</div>
-                    <h3 class="text-4xl font-serif mb-2 text-gold">Royal</h3>
-                    <p class="text-sm text-gray-300 mb-8">The complete guest experience.</p>
-                    <ul class="space-y-4 mb-10 text-sm text-gray-200">
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i> Everything in Digital</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i> <strong>Cinematic Intro Video</strong></li>
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i> Guest Photo Uploads</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i> Rituals & Story Section</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i> 1 Year Hosting</li>
+               <!-- Royal Nyota (Popular) -->
+                <div class="glass-card glass-highlight p-8 rounded-2xl relative transform md:-translate-y-4 fade-in-up z-20 flex flex-col h-full" style="transition-delay: 100ms;">
+                    <div class="absolute top-0 right-0 bg-[#D4AF37] text-black text-xs font-bold px-4 py-1.5 uppercase tracking-wider rounded-bl-lg rounded-tr-lg">Most Popular</div>
+                    
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-2">
+                             <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+                             <h3 class="text-3xl font-serif text-gold">Royal Nyota</h3>
+                        </div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-4">The complete guest experience</p>
+                        <div class="flex flex-col mb-4">
+                            <span class="text-gray-400 line-through text-sm">₹49,999</span>
+                            <span class="text-gold text-2xl font-bold">₹29,999 <span class="text-xs font-normal text-white ml-1">(Most Chosen Plan)</span></span>
+                        </div>
+                        <p class="text-sm text-gray-200 leading-relaxed mb-6">
+                            Your wedding starts before the wedding day. Nyota becomes the communication platform for all guests so families don’t have to manage everything manually.
+                        </p>
+                    </div>
+
+                    <ul class="space-y-3 mb-8 text-sm text-gray-200 flex-grow">
+                        <li class="flex items-start gap-3 font-semibold text-gold border-b border-white/10 pb-2 mb-2">Includes all Digital Nyota features, plus:</li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0"></i> <span>Personalized guest welcome screen</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0"></i> <span>Cinematic invitation opening</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0"></i> <span>Advanced RSVP (guest count & food)</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0"></i> <span>Rituals & couple story section</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0"></i> <span>Private photo gallery</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0"></i> <span>Guest photo uploads during wedding</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0"></i> <span>Blessings / wishes wall</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0"></i> <span>Password protected pages</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0"></i> <span>Automatic WhatsApp reminders</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0"></i> <span>1-year hosting</span></li>
                     </ul>
+                    <p class="text-xs text-gray-400 italic mb-4 text-center">Families choose this because it removes coordination stress.</p>
+
                    <a href="#contact" class="block text-center w-full py-4 rounded bg-[#D4AF37] text-black font-bold hover:bg-[#b5952f] text-sm uppercase tracking-wider transition-colors shadow-lg">
                     Select Royal
                         </a>
                 </div>
 
-                <!-- Imperial -->
-                <div class="glass-card p-8 rounded-xl fade-in-up hover:border-gray-500" style="transition-delay: 200ms;">
-                    <h3 class="text-2xl font-serif mb-2">Imperial</h3>
-                    <p class="text-sm text-gray-500 mb-8">For grand, multi day legacies.</p>
-                    <ul class="space-y-3 mb-8 text-sm text-gray-400">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Everything in Royal</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Lifetime Archive</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Dedicated Manager</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> RSVP Management System</li>
+               <!-- Imperial Nyota -->
+                <div class="glass-card p-8 rounded-xl fade-in-up hover:border-gray-500 flex flex-col h-full" style="transition-delay: 200ms;">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-2">
+                             <div class="w-3 h-3 rounded-full bg-purple-500"></div>
+                             <h3 class="text-2xl font-serif text-white">Imperial Nyota</h3>
+                        </div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-4">For grand wedding legacies</p>
+                        <div class="flex flex-col mb-4">
+                            <span class="text-gray-500 line-through text-sm">₹2,75,000</span>
+                            <span class="text-gold text-xl font-bold">₹1,25,000 <span class="text-xs font-normal text-white ml-1">(By Consultation)</span></span>
+                        </div>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                            The wedding does not end it becomes a permanent memory space. Designed for destination and premium weddings where experience and privacy matter.
+                        </p>
+                    </div>
+
+                    <ul class="space-y-3 mb-8 text-sm text-gray-400 flex-grow">
+                        <li class="flex items-start gap-3 font-semibold text-white border-b border-white/10 pb-2 mb-2">Includes all Royal Nyota features, plus:</li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Custom domain (yourwedding.com)</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>AI video invitation integration</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>VIP / family-only access sections</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Dedicated Nyota manager support</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Full RSVP management dashboard</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Lifetime wedding archive</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Permanent photo & video hosting</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Post-wedding memory website</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5 shrink-0"></i> <span>Privacy & NDA option</span></li>
                     </ul>
+                    <p class="text-xs text-gray-500 italic mb-4 text-center">Limited weddings accepted each season.</p>
                    <a href="#contact" class="block text-center w-full py-3 rounded border border-gray-600 hover:bg-white hover:text-black transition-colors text-sm uppercase tracking-wider">
                 Select Imperial
                 </a>
@@ -895,5 +957,6 @@
 </body>
 
 </html>
+
 
 
